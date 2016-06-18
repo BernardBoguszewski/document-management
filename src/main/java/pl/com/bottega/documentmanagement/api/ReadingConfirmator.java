@@ -8,14 +8,14 @@ import pl.com.bottega.documentmanagement.domain.repositories.DocumentRepository;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Created by bernard.boguszewski on 12.06.2016.
+ * Created by maciuch on 12.06.16.
  */
 public class ReadingConfirmator {
 
     private DocumentRepository documentRepository;
     private UserManager userManager;
 
-    public void confirm(DocumentNumber documentNumber){
+    public void confirm(DocumentNumber documentNumber) {
         checkNotNull(documentNumber);
 
         Document document = documentRepository.load(documentNumber);
@@ -23,14 +23,14 @@ public class ReadingConfirmator {
         documentRepository.save(document);
     }
 
-    public void confirm(DocumentNumber documentNumber, Employee forEmployee){
+    public void confirm(DocumentNumber documentNumber, Employee forEmployee) {
         checkNotNull(documentNumber);
         checkNotNull(forEmployee);
 
         Document document = documentRepository.load(documentNumber);
         document.confirm(userManager.currentEmployee(), forEmployee);
-        documentRepository.save(document);
 
+        documentRepository.save(document);
     }
 
 }

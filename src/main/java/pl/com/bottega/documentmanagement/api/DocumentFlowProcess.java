@@ -8,9 +8,8 @@ import pl.com.bottega.documentmanagement.domain.repositories.DocumentRepository;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-
 /**
- * Created by bernard.boguszewski on 12.06.2016.
+ * Created by maciuch on 12.06.16.
  */
 public class DocumentFlowProcess {
 
@@ -18,7 +17,7 @@ public class DocumentFlowProcess {
     private DocumentRepository documentRepository;
     private UserManager userManager;
 
-    public DocumentNumber create(String title, String content){
+    public DocumentNumber create(String title, String content) {
         checkNotNull(title);
         checkNotNull(content);
 
@@ -29,7 +28,7 @@ public class DocumentFlowProcess {
         return documentNumber;
     }
 
-    public void change(DocumentNumber documentNumber, String newTitle, String newContent){
+    public void change(DocumentNumber documentNumber, String newTitle, String newContent) {
         checkNotNull(documentNumber);
         checkNotNull(newTitle);
         checkNotNull(newContent);
@@ -37,33 +36,28 @@ public class DocumentFlowProcess {
         Document document = documentRepository.load(documentNumber);
         document.change(newTitle, newContent);
         documentRepository.save(document);
-
     }
 
-    public void verify(DocumentNumber documentNumber){
+    public void verify(DocumentNumber documentNumber) {
         checkNotNull(documentNumber);
 
         Document document = documentRepository.load(documentNumber);
         document.verify(userManager.currentEmployee());
         documentRepository.save(document);
-
     }
 
-    public void publish(DocumentNumber documentNumber, Iterable<EmployeeId> ids){
+    public void publish(DocumentNumber documentNumber, Iterable<EmployeeId> ids) {
         checkNotNull(documentNumber);
-
     }
 
-    public void archive(DocumentNumber documentNumber){
+    public void archive(DocumentNumber documentNumber) {
         checkNotNull(documentNumber);
-
     }
 
-    public DocumentNumber createNewVersion(DocumentNumber documentNumber){
+    public DocumentNumber createNewVersion(DocumentNumber documentNumber) {
         checkNotNull(documentNumber);
+
         return null;
     }
-
-
 
 }
