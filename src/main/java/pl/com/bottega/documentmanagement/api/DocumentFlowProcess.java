@@ -1,5 +1,7 @@
 package pl.com.bottega.documentmanagement.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.com.bottega.documentmanagement.domain.Document;
 import pl.com.bottega.documentmanagement.domain.DocumentNumber;
 import pl.com.bottega.documentmanagement.domain.DocumentNumberGenerator;
@@ -11,11 +13,44 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by maciuch on 12.06.16.
  */
+
+@Service
 public class DocumentFlowProcess {
+
+    public DocumentNumberGenerator getDocumentNumberGenerator() {
+        return documentNumberGenerator;
+    }
+
+    public void setDocumentNumberGenerator(DocumentNumberGenerator documentNumberGenerator) {
+        this.documentNumberGenerator = documentNumberGenerator;
+    }
+
+    public DocumentRepository getDocumentRepository() {
+        return documentRepository;
+    }
+
+    public void setDocumentRepository(DocumentRepository documentRepository) {
+        this.documentRepository = documentRepository;
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
+    }
+
+    public void setUserManager(UserManager userManager) {
+        this.userManager = userManager;
+    }
 
     private DocumentNumberGenerator documentNumberGenerator;
     private DocumentRepository documentRepository;
     private UserManager userManager;
+
+    @Autowired
+    public DocumentFlowProcess( DocumentRepository documentRepository, UserManager userManager, DocumentNumberGenerator documentNumberGenerator) {
+        this.documentNumberGenerator = documentNumberGenerator;
+        this.documentRepository = documentRepository;
+        this.userManager = userManager;
+    }
 
     public DocumentNumber create(String title, String content) {
         checkNotNull(title);
