@@ -1,7 +1,7 @@
 package pl.com.bottega.documentmanagement.domain;
 
 /**
- * Created by bernard.boguszewski on 18.06.2016.
+ * Created by maciuch on 18.06.16.
  */
 public interface EmployeeRepository {
 
@@ -9,6 +9,6 @@ public interface EmployeeRepository {
 
     Employee findByEmployeeId(EmployeeId employeeId);
 
-
     boolean isLoginOccupied(String login);
+
 }

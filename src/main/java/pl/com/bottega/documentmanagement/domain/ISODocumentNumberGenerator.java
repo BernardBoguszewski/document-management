@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 /**
- * Created by bernard.boguszewski on 18.06.2016.
+ * Created by maciuch on 18.06.16.
  */
 public class ISODocumentNumberGenerator implements DocumentNumberGenerator {
 
@@ -13,4 +13,5 @@ public class ISODocumentNumberGenerator implements DocumentNumberGenerator {
     public DocumentNumber generate() {
         return new DocumentNumber("ISO-" + UUID.randomUUID().toString());
     }
+
 }

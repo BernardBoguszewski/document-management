@@ -7,9 +7,9 @@ import static com.google.common.base.Preconditions.checkState;
  */
 public class Employee {
 
-    private String login;
-    private String hashedPassword;
     private EmployeeId employeeId;
+    private String hashedPassword;
+    private String login;
 
     public Employee(String login, String hashedPassword, EmployeeId employeeId) {
         this.login = login;
@@ -26,4 +26,5 @@ public class Employee {
         this.login = login;
         this.hashedPassword = password;
     }
+
 }

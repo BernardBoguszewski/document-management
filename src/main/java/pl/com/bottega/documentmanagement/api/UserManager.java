@@ -2,6 +2,7 @@ package pl.com.bottega.documentmanagement.api;
 
 import com.google.common.base.Charsets;
 import com.google.common.hash.Hashing;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.com.bottega.documentmanagement.domain.Employee;
 import pl.com.bottega.documentmanagement.domain.EmployeeId;
@@ -10,18 +11,16 @@ import pl.com.bottega.documentmanagement.domain.EmployeeRepository;
 /**
  * Created by maciuch on 12.06.16.
  */
-
 @Service
 public class UserManager {
 
     private EmployeeRepository employeeRepository;
 
-    public UserManager(EmployeeRepository employeeRepository){
+    public UserManager(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
-
-    public SignupResultDto signup(String login, String password, EmployeeId employeeId){
+    public SignupResultDto signup(String login, String password, EmployeeId employeeId) {
         Employee employee = employeeRepository.findByEmployeeId(employeeId);
         if (employee == null)
             return setupNewAccount(login, password, employeeId);
@@ -34,7 +33,7 @@ public class UserManager {
         }
     }
 
-    private SignupResultDto setupNewAccount(String login, String password, EmployeeId employeeId){
+    private SignupResultDto setupNewAccount(String login, String password, EmployeeId employeeId) {
         if (employeeRepository.isLoginOccupied(login))
             return failed("login is occupied");
         else {
@@ -44,19 +43,19 @@ public class UserManager {
         }
     }
 
-    private SignupResultDto failed(String reason){
+    private SignupResultDto failed(String reason) {
         return new SignupResultDto(reason);
     }
 
-    private SignupResultDto success(){
+    private SignupResultDto success() {
         return new SignupResultDto();
     }
 
-    private String hashedPassword(String password){
+    private String hashedPassword(String password) {
         return Hashing.sha1().hashString(password, Charsets.UTF_8).toString();
     }
 
-    public void login(String login, String password){
+    public void login(String login, String password) {
 
     }
 

@@ -11,7 +11,8 @@ public class DocumentNumber {
         this.number = number;
     }
 
-    public String toString(){
+    public String toString() {
         return number;
     }
+
 }

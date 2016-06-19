@@ -13,7 +13,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by maciuch on 12.06.16.
  */
-
 @Service
 public class DocumentFlowProcess {
 
@@ -45,11 +44,10 @@ public class DocumentFlowProcess {
     private DocumentRepository documentRepository;
     private UserManager userManager;
 
-    @Autowired
-    public DocumentFlowProcess( DocumentRepository documentRepository, UserManager userManager, DocumentNumberGenerator documentNumberGenerator) {
-        this.documentNumberGenerator = documentNumberGenerator;
+    public DocumentFlowProcess(DocumentRepository documentRepository, UserManager userManager, DocumentNumberGenerator documentNumberGenerator) {
         this.documentRepository = documentRepository;
         this.userManager = userManager;
+        this.documentNumberGenerator = documentNumberGenerator;
     }
 
     public DocumentNumber create(String title, String content) {

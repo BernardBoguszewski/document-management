@@ -6,11 +6,10 @@ import pl.com.bottega.documentmanagement.domain.DocumentNumber;
 import pl.com.bottega.documentmanagement.domain.repositories.DocumentRepository;
 
 /**
- * Created by bernard.boguszewski on 18.06.2016.
+ * Created by maciuch on 18.06.16.
  */
-
-@Repository //sugeruje springowi, ze to kandydat na beana
-public class FakeDocumentRepository implements DocumentRepository{
+@Repository
+public class FakeDocumentRepository implements DocumentRepository {
 
     @Override
     public void save(Document document) {
