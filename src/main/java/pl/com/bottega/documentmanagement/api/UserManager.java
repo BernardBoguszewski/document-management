@@ -18,7 +18,6 @@ public class UserManager {
     private EmployeeRepository employeeRepository;
     private Employee currentEmployee;
 
-
     public UserManager(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
@@ -61,14 +60,14 @@ public class UserManager {
 
     public SignupResultDto login(String login, String password) {
         this.currentEmployee = employeeRepository.findByLoginAndPassword(login, hashedPassword(password));
-        if (this.currentEmployee == null)
-            return failed("login and password incorrect");
+        if(this.currentEmployee == null)
+            return failed("login or password incorrect");
         else
             return success();
     }
 
     public Employee currentEmployee() {
-        return null;
+        return this.currentEmployee;
     }
 
 }

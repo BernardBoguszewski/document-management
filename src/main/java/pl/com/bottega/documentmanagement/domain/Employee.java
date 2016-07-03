@@ -16,7 +16,7 @@ public class Employee {
     private String hashedPassword;
     private String login;
 
-    public Employee() {}
+    private Employee() {}
 
     public Employee(String login, String hashedPassword, EmployeeId employeeId) {
         this.login = login;

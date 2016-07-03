@@ -5,7 +5,6 @@ import pl.com.bottega.documentmanagement.api.DocumentDto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 /**
  * Created by maciuch on 12.06.16.
@@ -20,22 +19,19 @@ public class Document {
     private String content;
     private String title;
 
-    @ManyToOne
-    private Employee creator;
-
-    public Document(DocumentNumber documentNumber, String content, String title, Employee creator) {
-        this.documentNumber = documentNumber;
-        this.content = content;
-        this.title = title;
-        this.creator = creator;
+    private Document() {
     }
 
     public Document(DocumentNumber documentNumber, String content, String title) {
 
+        this.documentNumber = documentNumber;
+        this.content = content;
+        this.title = title;
     }
 
     public void change(String title, String content) {
-
+        this.title = title;
+        this.content = content;
     }
 
     public void verify(Employee employee) {
