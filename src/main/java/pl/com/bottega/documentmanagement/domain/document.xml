@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <title>
+        Tytul
+    </title>
+    <content>
+        Przykladowy tekst
+    </content>
+    <creator>
+        <name>
+            Imie
+        </name>
+        <surname>
+            Nazwisko
+        </surname>
+        <phone-number>
+            123456789
+        </phone-number>
+    </creator>
+</document>

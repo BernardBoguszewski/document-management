@@ -1,0 +1,9 @@
+{
+  "title": "Tytul",
+  "content": "Przykladowy tekst",
+  "creator": {
+    "firstName": "Imie",
+    "lastName": "Nazwisko",
+    "phone-number": 123456789
+  }
+}
