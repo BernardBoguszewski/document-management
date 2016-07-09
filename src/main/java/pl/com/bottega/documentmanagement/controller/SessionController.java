@@ -8,7 +8,7 @@ import pl.com.bottega.documentmanagement.api.SignupResultDto;
 import pl.com.bottega.documentmanagement.api.UserManager;
 
 /**
- * Created by bernard.boguszewski on 03.07.2016.
+ * Created by maciuch on 03.07.16.
  */
 @RestController
 @RequestMapping("/session")
@@ -24,4 +24,5 @@ public class SessionController {
     public SignupResultDto login(@RequestBody LoginRequest loginRequest) {
         return userManager.login(loginRequest.getLogin(), loginRequest.getPassword());
     }
+
 }

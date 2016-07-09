@@ -1,7 +1,7 @@
 package pl.com.bottega.documentmanagement.controller;
 
 /**
- * Created by bernard.boguszewski on 03.07.2016.
+ * Created by maciuch on 03.07.16.
  */
 public class SignupRequest {
 
@@ -32,4 +32,5 @@ public class SignupRequest {
     public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
+
 }
