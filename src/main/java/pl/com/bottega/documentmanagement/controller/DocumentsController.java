@@ -17,11 +17,14 @@ public class DocumentsController {
         this.documentFlowProcess = documentFlowProcess;
     }
 
+    //@RequestMapping(path = "/documents", method = RequestMethod.PUT)
     @PutMapping
     public DocumentNumber create(@RequestBody DocumentRequest documentRequest) {
         return documentFlowProcess.create(documentRequest.getTitle(), documentRequest.getContent());
     }
 
+
+    //@RequestMapping(path = "/documents/{documentsNumber}", method = RequestMethod.POST)
     @PostMapping("/{documentNumber}")
     public void update(@PathVariable String documentNumber, @RequestBody DocumentRequest documentRequest) {
         documentFlowProcess.change(new DocumentNumber(documentNumber), documentRequest.getTitle(), documentRequest.getContent());
