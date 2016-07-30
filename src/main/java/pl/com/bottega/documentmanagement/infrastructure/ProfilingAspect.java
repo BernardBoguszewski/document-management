@@ -5,11 +5,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-;
-
 
 /**
- * Created by bernard.boguszewski on 09.07.2016.
+ * Created by maciuch on 09.07.16.
  */
 @Component
 public class ProfilingAspect {
@@ -22,12 +20,14 @@ public class ProfilingAspect {
 
         Date endTime = new Date();
         long time = endTime.getTime() - startTime.getTime();
-        String msg = "Class: " + proceedingJoinPoint.getTarget().getClass().getName() +
+        String msg = "Class: " +
+                proceedingJoinPoint.getTarget().getClass().getName() +
                 ", Method: " + proceedingJoinPoint.getSignature().getName() +
                 ", Processing time: " + time + "ms";
         Logger.getLogger(ProfilingAspect.class).info(msg);
 
-        //return target method return value
+        // return target method return value
         return returnValue;
     }
+
 }

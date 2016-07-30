@@ -84,7 +84,6 @@ public class DocumentCriteria {
         return status != null;
     }
 
-
     public boolean isCreatedByDefined() {
         return createdBy != null;
     }
@@ -103,5 +102,17 @@ public class DocumentCriteria {
 
     public boolean isQueryDefined() {
         return query != null;
+    }
+
+    public boolean isVerifiedByDefined() {
+        return verifiedBy != null;
+    }
+
+    public boolean isVerifiedUntilDefined() {
+        return verifiedUntil != null;
+    }
+
+    public boolean isVerifiedFromDefined() {
+        return verifiedFrom != null;
     }
 }
