@@ -8,13 +8,33 @@ import java.util.Date;
  * Created by maciuch on 12.06.16.
  */
 public class DocumentCriteria {
-
+    private static final int DEFAULT_PER_PAGE = 2;
+    private static final int DEFAULT_PAGE_NUMBER = 1;
     private DocumentStatus status;
     private Long verifiedBy;
     private Long createdBy;
     private Date createdFrom, createdUntil;
     private Date verifiedFrom, verifiedUntil;
     private String query;
+    private int perPage = DEFAULT_PER_PAGE;
+    private int pageNumber = DEFAULT_PAGE_NUMBER;
+
+
+    public int getPageNumber() {
+        return pageNumber;
+    }
+
+    public void setPageNumber(int pageNumber) {
+        this.pageNumber = pageNumber;
+    }
+
+    public int getPerPage() {
+        return perPage;
+    }
+
+    public void setPerPage(int perPage) {
+        this.perPage = perPage;
+    }
 
     public DocumentStatus getStatus() {
         return status;
