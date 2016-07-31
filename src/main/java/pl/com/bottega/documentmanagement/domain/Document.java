@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * Created by maciuch on 12.06.16.
  */
@@ -39,7 +42,7 @@ public class Document {
     @ManyToOne
     private Employee deletor;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Tag> tags;
 
     private Document() {
@@ -63,6 +66,7 @@ public class Document {
     }
 
     public void verify(Employee employee) {
+        checkArgument(employee != null);
         this.verificator = employee;
         this.status = DocumentStatus.VERIFIED;
         this.verifiedAt = new Date();
@@ -89,4 +93,131 @@ public class Document {
         return tags;
     }
 
+    public String content(){
+        return content;
+    }
+
+    public String title(){
+        return title;
+    }
+
+    public Employee creator(){
+        return creator;
+    }
+
+    public boolean deleted(){
+        return deleted;
+    }
+
+    public DocumentNumber number(){
+        return documentNumber;
+    }
+
+    public DocumentStatus status(){
+        return status;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public DocumentNumber getDocumentNumber() {
+        return documentNumber;
+    }
+
+    public void setDocumentNumber(DocumentNumber documentNumber) {
+        this.documentNumber = documentNumber;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date verifiedAt() {
+        return verifiedAt;
+    }
+
+    public void setVerifiedAt(Date verifiedAt) {
+        this.verifiedAt = verifiedAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public DocumentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(DocumentStatus status) {
+        this.status = status;
+    }
+
+    public Employee getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Employee creator) {
+        this.creator = creator;
+    }
+
+    public Employee verificator() {
+        return verificator;
+    }
+
+    public void setVerificator(Employee verificator) {
+        this.verificator = verificator;
+    }
+
+    public Employee getDeletor() {
+        return deletor;
+    }
+
+    public void setDeletor(Employee deletor) {
+        this.deletor = deletor;
+    }
+
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
 }
